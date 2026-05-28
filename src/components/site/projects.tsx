@@ -11,10 +11,13 @@ import p5 from "@/assets/gallery-3.jpg";
 import p6 from "@/assets/gallery-4.jpg";
 import p7 from "@/assets/gallery-5.jpg";
 import p8 from "@/assets/cta-bg.jpg";
+import vaibhavii from "@/assets/project-vaibhavii.jpg";
+import padmavathi from "@/assets/project-padmavathi.jpg";
+import srr from "@/assets/project-srr.jpg";
 
 const projects = [
   {
-    images: [asv, p1, p2, p3],
+    images: [srr, p1, p2, p3],
     name: "SRR Temple Bells",
     location: "RR Nagar, Bangalore",
     badge: "Completed Project",
@@ -22,7 +25,7 @@ const projects = [
     status: "Completed",
   },
   {
-    images: [p2, p3, p4],
+    images: [vaibhavii, p2, p3, p4],
     name: "Vaibhavii Residential Layout",
     location: "HSR Extension, Bangalore",
     badge: "Completed Project",
@@ -30,7 +33,7 @@ const projects = [
     status: "Completed",
   },
   {
-    images: [p3, p4, p5],
+    images: [padmavathi, p3, p4, p5],
     name: "Padmavathi Balaji Layout",
     location: "Sarjapur, Bangalore",
     badge: "Completed Project",
