@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Calendar } from "lucide-react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import hero from "@/assets/asv-gate.jpg";
+import hero from "@/assets/hero.jpg";
 
 const headlineWords = [
   { t: "Invest", c: "text-white" },
