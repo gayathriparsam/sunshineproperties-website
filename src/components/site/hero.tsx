@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Calendar, CheckCircle2, MessageCircle } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/asv-gate.jpg";
@@ -25,8 +25,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/75" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-transparent" />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-10 px-4 md:px-6 pt-28 pb-44 md:pb-52">
-        <div className="max-w-2xl">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-4 md:px-6 pt-28 pb-44 md:pb-52">
+        <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/25 px-4 py-1.5 text-xs tracking-[0.18em] uppercase text-white/90">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
             ASV 135 GOLD · DTCP Approved
@@ -57,6 +57,15 @@ export function Hero() {
             near Narsapur Industrial Area.
           </motion.p>
 
+          <motion.blockquote
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.45 }}
+            className="mt-8 max-w-xl border-l-2 border-white/40 pl-5 font-serif italic text-white/90 text-base md:text-lg leading-relaxed"
+          >
+            &quot;Land is not just an asset — it is the foundation of generational wealth.&quot;
+          </motion.blockquote>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,7 +85,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-full h-12 px-7 border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white backdrop-blur"
+              className="rounded-full h-12 px-7 border-white/30 bg-black/40 text-white hover:bg-black/55 hover:text-white backdrop-blur"
             >
               <Link to="/contact">
                 <Calendar className="mr-2 h-4 w-4" /> Schedule Site Visit
@@ -84,51 +93,6 @@ export function Hero() {
             </Button>
           </motion.div>
         </div>
-
-        {/* On Going Project card */}
-        <motion.aside
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
-          className="hidden lg:block"
-        >
-          <div className="rounded-2xl bg-white/95 backdrop-blur-xl border border-white/60 shadow-2xl p-7 xl:p-8">
-            <div className="text-xs tracking-[0.22em] uppercase text-brand-orange font-semibold">
-              On Going Project
-            </div>
-            <h3 className="mt-2 font-serif text-3xl xl:text-4xl text-brand-orange">
-              ASV 135 GOLD
-            </h3>
-            <div className="mt-3 flex gap-1.5">
-              {Array.from({ length: 7 }).map((_, i) => (
-                <span key={i} className="block h-1.5 w-1.5 rotate-45 bg-foreground/70" />
-              ))}
-            </div>
-            <ul className="mt-5 space-y-3 text-foreground">
-              {[
-                "DTCP Approved Layout",
-                "A-Katha Certified Plots",
-                "Bank Loan Available up to 70%",
-                "Project Location — Kolar",
-              ].map((t) => (
-                <li key={t} className="flex items-center gap-3">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-green text-white">
-                    <CheckCircle2 className="h-4 w-4" />
-                  </span>
-                  <span className="text-[15px]">{t}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="https://wa.me/919876543210?text=Hi,%20I%20am%20interested%20in%20ASV%20135%20GOLD"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#1ebe57] text-white font-semibold h-12 transition-colors"
-            >
-              <MessageCircle className="h-5 w-5" /> WhatsApp Now
-            </a>
-          </div>
-        </motion.aside>
       </div>
 
       {/* Stats overlay — anchored to bottom of hero image, never overlaps CTAs */}
