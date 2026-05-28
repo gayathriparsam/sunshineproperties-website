@@ -16,14 +16,14 @@ export function FloatingContact() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-green-900/30 ring-4 ring-white hover:scale-105 transition-transform"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-green-900/30 hover:scale-105 transition-transform"
       >
         <WhatsAppIcon className="h-7 w-7" />
       </a>
       <a
         href="tel:+919876543210"
         aria-label="Call us"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-orange text-white shadow-xl shadow-orange-900/30 ring-4 ring-white hover:scale-105 transition-transform"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-orange text-white shadow-xl shadow-orange-900/30 hover:scale-105 transition-transform"
       >
         <Phone className="h-6 w-6" />
       </a>
