@@ -13,25 +13,25 @@ export function OnGoingProject() {
   return (
     <section id="ongoing-project" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <div className="relative">
-          {/* Background image full width */}
-          <Reveal>
+        <div className="relative grid md:grid-cols-12 items-center gap-0">
+          {/* Image */}
+          <Reveal className="md:col-span-7 lg:col-span-8">
             <div className="relative overflow-hidden shadow-sm">
               <img
                 src={asvGate}
                 alt="ASV 135 GOLD project gate"
-                className="h-[320px] sm:h-[420px] md:h-[560px] lg:h-[640px] w-full object-cover"
+                className="h-[280px] sm:h-[360px] md:h-[480px] lg:h-[560px] w-full object-cover"
                 loading="lazy"
               />
             </div>
           </Reveal>
 
-          {/* Card overlaid on the right of the image (desktop) / below on mobile */}
+          {/* Floating card beside image */}
           <Reveal
             delay={0.15}
-            className="md:absolute md:top-1/2 md:right-6 lg:right-10 md:-translate-y-1/2 md:w-[440px] lg:w-[500px] -mt-16 md:mt-0 px-4 md:px-0 z-10"
+            className="md:col-span-6 lg:col-span-5 z-10 -mt-16 md:mt-0 md:-ml-16 lg:-ml-24 px-4 md:px-0"
           >
-            <div className="bg-white shadow-2xl border border-border/40 p-6 sm:p-8 md:p-10">
+            <div className="bg-white shadow-2xl border border-border/40 p-6 sm:p-8 md:p-10 lg:p-12">
               <p className="text-2xl md:text-3xl font-serif font-semibold text-foreground">
                 On Going Project
               </p>
