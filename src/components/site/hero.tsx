@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Calendar, CheckCircle2, MessageCircle } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/asv-gate.jpg";
