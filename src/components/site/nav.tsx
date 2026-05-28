@@ -34,28 +34,59 @@ export function SiteNav() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled || open
-          ? "bg-white/85 backdrop-blur-md border-b border-border/60 shadow-sm"
-          : "bg-transparent"
+          ? "bg-white/90 backdrop-blur-md border-b border-border/60 shadow-sm"
+          : "bg-gradient-to-b from-black/30 to-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-6 h-20">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Sunshine Marketing & Promoters" className="h-12 w-auto" />
-          <div className="hidden lg:flex flex-col leading-tight">
-            <span className="font-serif text-lg text-foreground">Sunshine</span>
-            <span className="text-[10px] tracking-[0.18em] uppercase text-muted-foreground">
+      {/* Top utility bar (desktop only) */}
+      <div
+        className={`hidden lg:block border-b transition-colors ${
+          scrolled || open ? "border-border/60" : "border-white/15"
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 h-9 text-[11px] tracking-[0.18em] uppercase">
+          <span className={scrolled || open ? "text-muted-foreground" : "text-white/80"}>
+            DTCP &amp; A-Katha Approved · Narsapur Industrial Corridor
+          </span>
+          <a
+            href="tel:+919876543210"
+            className={`flex items-center gap-2 font-semibold hover:text-brand-orange ${
+              scrolled || open ? "text-foreground/80" : "text-white/90"
+            }`}
+          >
+            <Phone className="h-3.5 w-3.5" /> +91 98765 43210
+          </a>
+        </div>
+      </div>
+
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 md:px-6 h-24">
+        <Link to="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
+          <img src={logo} alt="Sunshine Marketing & Promoters" className="h-14 w-auto" />
+          <div className="hidden xl:flex flex-col leading-tight">
+            <span
+              className={`font-serif text-xl ${scrolled || open ? "text-foreground" : "text-white"}`}
+            >
+              Sunshine
+            </span>
+            <span
+              className={`text-[10px] tracking-[0.2em] uppercase ${
+                scrolled || open ? "text-muted-foreground" : "text-white/70"
+              }`}
+            >
               Marketing &amp; Promoters
             </span>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="text-[15px] xl:text-base font-semibold tracking-wide uppercase text-foreground/85 hover:text-brand-orange transition-colors"
-              activeProps={{ className: "text-brand-green" }}
+              className={`whitespace-nowrap text-[13px] font-semibold tracking-[0.12em] uppercase transition-colors hover:text-brand-orange ${
+                scrolled || open ? "text-foreground/85" : "text-white/90"
+              }`}
+              activeProps={{ className: "text-brand-orange" }}
               activeOptions={{ exact: l.to === "/" }}
             >
               {l.label}
@@ -63,32 +94,23 @@ export function SiteNav() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="tel:+919876543210"
-            className="hidden xl:flex items-center gap-2 text-[15px] font-semibold text-foreground/85 hover:text-brand-green whitespace-nowrap"
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
+          <Button
+            asChild
+            className="hidden sm:inline-flex bg-brand-orange hover:bg-brand-orange/90 text-white rounded-full px-5 md:px-6 h-11 text-[12px] font-semibold uppercase tracking-[0.14em] whitespace-nowrap shadow-md shadow-orange-900/20"
           >
-            <Phone className="h-4 w-4" /> +91 98765 43210
-          </a>
-          <Button asChild className="bg-brand-orange hover:bg-brand-orange/90 text-white rounded-full px-6 h-11 text-[14px] font-semibold uppercase tracking-wide whitespace-nowrap shadow-md shadow-orange-900/20">
             <Link to="/contact">Book Site Visit</Link>
           </Button>
           <button
-            className="lg:hidden p-2 text-foreground"
+            className={`lg:hidden p-2 rounded-md ${
+              scrolled || open ? "text-foreground" : "text-white"
+            }`}
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-
-        <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
       </div>
     </header>
 
