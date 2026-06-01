@@ -128,7 +128,19 @@ export function InvestmentAdvantage() {
       <section className="py-20 md:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <Reveal>
-            <img src={map} alt="Aerial connectivity view" className="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover" />
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border/60 bg-cream">
+              <img
+                src={map}
+                alt="Aerial connectivity view of the Narsapur corridor"
+                className="w-full h-full aspect-[4/5] md:aspect-[4/3] object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-white">
+                <span className="text-[11px] tracking-[0.22em] uppercase font-medium">Narsapur Corridor</span>
+                <span className="text-[11px] tracking-[0.18em] uppercase opacity-80">NH-44 · PRR</span>
+              </div>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <span className="text-xs tracking-[0.22em] uppercase text-brand-orange font-medium">
