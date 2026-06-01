@@ -40,9 +40,9 @@ export function SiteNav() {
     >
       {/* Top utility bar (desktop only) */}
       <div
-        className={`hidden lg:block border-b transition-colors ${
-          scrolled || open ? "border-border/60" : "border-white/15"
-        }`}
+        className={`hidden lg:block border-b transition-all duration-300 overflow-hidden ${
+          scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100 border-white/15"
+        } ${open ? "border-border/60" : ""}`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 h-9 text-[11px] tracking-[0.18em] uppercase">
           <span className={scrolled || open ? "text-muted-foreground" : "text-white/80"}>
@@ -59,17 +59,17 @@ export function SiteNav() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 md:px-6 h-24">
+      <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 md:px-6 transition-all duration-300 ${scrolled ? "h-16" : "h-24"}`}>
         <Link to="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Sunshine Marketing & Promoters" className="h-14 w-auto" />
+          <img src={logo} alt="Sunshine Marketing & Promoters" className={`w-auto transition-all duration-300 ${scrolled ? "h-10" : "h-14"}`} />
           <div className="hidden xl:flex flex-col leading-tight">
             <span
-              className={`font-serif text-xl ${scrolled || open ? "text-foreground" : "text-white"}`}
+              className={`font-serif transition-all duration-300 ${scrolled ? "text-base" : "text-xl"} ${scrolled || open ? "text-foreground" : "text-white"}`}
             >
               Sunshine
             </span>
             <span
-              className={`text-[10px] tracking-[0.2em] uppercase ${
+              className={`tracking-[0.2em] uppercase transition-all duration-300 ${scrolled ? "text-[9px]" : "text-[10px]"} ${
                 scrolled || open ? "text-muted-foreground" : "text-white/70"
               }`}
             >
@@ -97,7 +97,7 @@ export function SiteNav() {
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <Button
             asChild
-            className="hidden sm:inline-flex bg-brand-orange hover:bg-brand-orange/90 text-white rounded-full px-5 md:px-6 h-11 text-[12px] font-semibold uppercase tracking-[0.14em] whitespace-nowrap shadow-md shadow-orange-900/20"
+            className={`hidden sm:inline-flex bg-brand-orange hover:bg-brand-orange/90 text-white rounded-full px-5 md:px-6 text-[12px] font-semibold uppercase tracking-[0.14em] whitespace-nowrap shadow-md shadow-orange-900/20 transition-all duration-300 ${scrolled ? "h-9" : "h-11"}`}
           >
             <Link to="/contact">Book Site Visit</Link>
           </Button>
