@@ -59,7 +59,7 @@ export function SiteNav() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 md:px-6 h-24">
+      <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 md:px-6 transition-all duration-300 ${scrolled ? "h-16" : "h-24"}`}>
         <Link to="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
           <img src={logo} alt="Sunshine Marketing & Promoters" className="h-14 w-auto" />
           <div className="hidden xl:flex flex-col leading-tight">
