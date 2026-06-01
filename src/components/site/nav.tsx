@@ -16,12 +16,12 @@ const links = [
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isHome = pathname === "/";
-  // On non-home pages the page background is white, so the nav must always
-  // use the solid/light style. Only the home hero is dark enough for the
-  // transparent overlay variant.
-  const solid = scrolled || open || !isHome;
+  // Every page now opens with a dark hero, so the nav can stay transparent
+  // at the top and only switch to the solid/light variant once scrolled —
+  // this way the navbar inherits whatever sits behind it instead of
+  // clashing with the page background.
+  useRouterState({ select: (s) => s.location.pathname });
+  const solid = scrolled || open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
