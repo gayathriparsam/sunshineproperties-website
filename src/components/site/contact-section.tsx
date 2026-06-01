@@ -8,8 +8,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { enquiryFormSchema, type EnquiryFormInput } from "@/lib/enquiry-schema";
-import { submitEnquiry } from "@/functions/leads.functions";
 import { Reveal } from "./reveal";
+
+async function postEnquiry(values: EnquiryFormInput) {
+  const res = await fetch("/api/submit-enquiry", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(values),
+  });
+  if (!res.ok) {
+    const data = (await res.json().catch(() => ({}))) as { error?: string };
+    throw new Error(data.error ?? "Request failed");
+  }
+  return res.json() as Promise<{ ok: true }>;
+}
 
 export function ContactSection() {
   const [sent, setSent] = useState(false);
@@ -34,7 +46,7 @@ export function ContactSection() {
 
   const onSubmit = handleSubmit(async (values) => {
     try {
-      await submitEnquiry({ data: values });
+      await postEnquiry(values);
       setSent(true);
       reset();
       toast.success("Thank you — we'll be in touch within one working day.");
